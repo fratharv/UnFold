@@ -42,7 +42,6 @@ document.querySelectorAll('.key').forEach(key => {
       const text = problemInput.value;
       problemInput.value = text.substring(0, start) + val + text.substring(end);
       
-      // Smart cursor placement for functions like sin()
       let cursorOffset = val.length;
       if (val.includes('()')) {
         cursorOffset = val.indexOf('()') + 1;
@@ -71,7 +70,7 @@ function showLoading() {
 }
 
 function showError(msg) {
-  guidanceContent.innerHTML = `<p style="color: var(--accent-red); font-weight: bold;">ERROR: ${msg}</p>`;
+  guidanceContent.innerHTML = `<p style="color: var(--accent-red); font-weight: bold; font-family: var(--font-mono);">ERROR: ${msg}</p>`;
   actionArea.innerHTML = '';
 }
 
@@ -137,7 +136,6 @@ analyzeBtn.addEventListener('click', async () => {
       return;
     }
 
-    // Render Stage 1: IDENTIFY
     guidanceContent.innerHTML = `
       ${isDemo ? '<div class="demo-badge">DEMO MODE</div>' : ''}
       <h4>${currentAnalysis.branch.toUpperCase()} · ${currentAnalysis.topic.toUpperCase()}</h4>
@@ -154,7 +152,7 @@ analyzeBtn.addEventListener('click', async () => {
 
   } catch (err) {
     console.error(err);
-    showError('Failed to connect to the UNFOLD backend. Check console or enable Demo Mode.');
+    showError(err.message || 'Failed to connect to OpenAI. Check your API key or enable Demo Mode.');
   } finally {
     analyzeBtn.disabled = false;
   }
@@ -212,7 +210,6 @@ async function handleSolve() {
     const isDemo = demoToggle.checked;
     const data = await showSolution(currentProblem, currentAnalysis, isDemo);
     
-    // Format solution with line breaks
     const formattedSolution = data.solution.replace(/\n/g, '<br>');
     
     guidanceContent.innerHTML = `
