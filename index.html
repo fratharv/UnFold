@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UNFOLD | Guided Mathematics</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="brutalist-header">
+    <div class="header-left">
+      <h1>UNFOLD</h1>
+      <span class="subtitle">GUIDED MATHEMATICS</span>
+    </div>
+    <div class="header-right">
+      <p>“LEARN THE METHOD. THEN THE ANSWER.”</p>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <section class="intro-banner">
+      <h2>SOLVE WITHOUT SPOILERS</h2>
+      <p>Enter a problem. Reveal the solution only when you're ready.</p>
+    </section>
+
+    <div class="main-grid">
+      <!-- LEFT COLUMN: INPUT -->
+      <section class="input-panel">
+        <h3>YOUR PROBLEM</h3>
+        <div class="input-wrapper">
+          <textarea id="problem-input" placeholder="Enter a mathematics problem..." aria-label="Mathematics problem input"></textarea>
+        </div>
+
+        <div class="keypad" role="group" aria-label="Mathematical keypad">
+          <button class="key" data-val="x">x</button>
+          <button class="key" data-val="y">y</button>
+          <button class="key" data-val="z">z</button>
+          <button class="key" data-val="²">²</button>
+          <button class="key" data-val="³">³</button>
+          <button class="key" data-val="ⁿ">ⁿ</button>
+          <button class="key" data-val="√()">√()</button>
+          <button class="key" data-val="π">π</button>
+          <button class="key" data-val="∞">∞</button>
+          
+          <button class="key" data-val="+">+</button>
+          <button class="key" data-val="-">−</button>
+          <button class="key" data-val="*">×</button>
+          <button class="key" data-val="/">÷</button>
+          <button class="key" data-val="=">=</button>
+          
+          <button class="key" data-val="(">(</button>
+          <button class="key" data-val=")">)</button>
+          <button class="key" data-val="[">[</button>
+          <button class="key" data-val="]">]</button>
+          <button class="key" data-val="|">|</button>
+          
+          <button class="key" data-val="∫">∫</button>
+          <button class="key" data-val="∂">∂</button>
+          <button class="key" data-val="d/dx">d/dx</button>
+          <button class="key" data-val="Σ">Σ</button>
+          <button class="key" data-val="lim">lim</button>
+          
+          <button class="key" data-val="sin()">sin()</button>
+          <button class="key" data-val="cos()">cos()</button>
+          <button class="key" data-val="tan()">tan()</button>
+          <button class="key" data-val="ln()">ln()</button>
+          <button class="key" data-val="log()">log()</button>
+          
+          <button class="key action-key" data-action="left">←</button>
+          <button class="key action-key" data-action="right">→</button>
+          <button class="key action-key" data-action="backspace">⌫</button>
+          <button class="key action-key danger" data-action="clear">CLEAR</button>
+        </div>
+
+        <button id="analyze-btn" class="primary-btn">ANALYZE PROBLEM</button>
+        
+        <div class="demo-toggle">
+          <label>
+            <input type="checkbox" id="demo-mode-toggle"> 
+            Enable Demo Mode (No API Key Required)
+          </label>
+        </div>
+      </section>
+
+      <!-- RIGHT COLUMN: GUIDANCE -->
+      <section class="guidance-panel" aria-live="polite">
+        <h3>GUIDANCE</h3>
+        
+        <div class="stage-indicator">
+          <div class="stage" id="stage-1">01 · IDENTIFY</div>
+          <div class="stage" id="stage-2">02 · RECALL</div>
+          <div class="stage" id="stage-3">03 · APPLY</div>
+          <div class="stage" id="stage-4">04 · SOLVE</div>
+        </div>
+
+        <div id="guidance-content" class="guidance-content">
+          <p class="placeholder-text">Submit a problem to begin.</p>
+        </div>
+
+        <div id="action-area" class="action-area"></div>
+
+        <!-- MATHEMATICIAN PORTRAIT -->
+        <div class="mathematician-panel">
+          <div id="portrait-placeholder" class="portrait-placeholder">
+            <span>THE MATHEMATICIAN APPEARS AFTER ANALYSIS</span>
+          </div>
+          <div id="portrait-display" class="portrait-display hidden">
+            <img id="math-portrait" src="" alt="Historical Mathematician">
+            <div class="portrait-label">
+              <span id="math-name">NAME</span>
+              <span id="math-branch">BRANCH</span>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="brutalist-footer">
+    <p>UNFOLD © 2026 — DON’T JUST GET THE ANSWER. LEARN HOW TO FIND IT.</p>
+  </footer>
+
+  <script src="ai.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
